@@ -1,0 +1,18 @@
+﻿@model CarLocadora.Modelo.Modelos.UsuarioModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Editar usuario</h4>
+<hr />
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <partial name="_Formulario" />
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
