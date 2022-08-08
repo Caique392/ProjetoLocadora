@@ -9,33 +9,25 @@ using System.Threading.Tasks;
 namespace CarLocadora.Modelo.Models
 
 {
-    public class Veiculos
+    public class UsuarioModel:EnderecoModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [StringLength (8)]
-        public string Placa { get; set; }
-
-        [StringLength(100)]
-        public string? Chassi { get; set; }
-
-        [StringLength(100)]
-        public string Marca { get; set; }
-
+        [StringLength (14)]
+        public string CPF { get; set; }
+        [StringLength(50)]
+        public string RG { get; set; }
         [StringLength(150)]
-        public string Modelo { get; set; }
-
-        [StringLength(100)]
-        public string Combustivel { get; set; }
-
-        [StringLength(100)]
-        public string Cor { get; set; }
-
-        [StringLength(2000)]
-        public string? Opcionais { get; set; }
+        public string Nome { get; set; }
+        public DateTime DataNascimento { get; set; }
+        [StringLength(15)]
+        public string? Telefone { get; set; }
+        [StringLength(15)]
+        public string Celular { get; set; }
+        [StringLength(300)]
+        public string? Senha { get; set; }
         public bool Ativo { get; set; }
         public DateTime DataInclusao { get; set; }
         public DateTime? DataAlteracao { get; set; }
-
     }
 }

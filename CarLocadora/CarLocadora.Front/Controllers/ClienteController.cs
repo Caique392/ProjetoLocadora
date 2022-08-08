@@ -1,5 +1,5 @@
 ﻿using CarLocadora.Front.Models;
-using CarLocadora.Modelo.Modelos;
+using CarLocadora.Modelo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -145,13 +145,12 @@ namespace CarLocadora.Front.Controllers
             }
         }
 
-        // GET: ClienteController/Delete/5
         public ActionResult Delete(string CPF)
         {
             return View();
         }
 
-        // POST: ClienteController/Delete/5
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

@@ -1,8 +1,8 @@
-﻿@model CarLocadora.Modelo.Modelos.UsuarioModel
+﻿@model CarLocadora.Modelo.Models.UsuarioModel
 
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
             <label asp-for="CPF" class="control-label"></label>
             <input asp-for="CPF" class="form-control maskCPF" />
@@ -10,11 +10,18 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
             <label asp-for="RG" class="control-label"></label>
             <input asp-for="RG" class="form-control" />
             <span asp-validation-for="RG" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="DataNascimento" class="control-label"></label>
+            <input asp-for="DataNascimento" class="form-control" />
+            <span asp-validation-for="DataNascimento" class="text-danger"></span>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace CarLocadora.Front.Controllers
+namespace CarLocadora.Controllers
 {
     public class HomeController : Controller
     {
