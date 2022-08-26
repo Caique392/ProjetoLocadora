@@ -1,0 +1,29 @@
+﻿using CarLocadora.Modelo.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CarLocadora.Negocio.Login
+{
+    public class LoginServico
+    {
+        public async Task<LoginRespostaModel> Login(LoginRequisicaoModel loginRequisicaoModel)
+        {
+            LoginRespostaModel loginRespostaModel = new()
+            {
+                Autenticado = false,
+                Usuario = loginRequisicaoModel.Usuario,
+                Token = "",
+                DataExpiracao = null
+            };
+
+            if (loginRequisicaoModel.Usuario == "UsuarioDevPratica" && loginRequisicaoModel.Senha == "SenhaDevPratica")
+            {
+                loginRespostaModel = new GeradorToken().GerarToken(loginRespostaModel);
+            }
+            return loginRespostaModel;
+        }
+    }
+}

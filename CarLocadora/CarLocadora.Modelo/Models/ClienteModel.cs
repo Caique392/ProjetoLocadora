@@ -17,12 +17,12 @@ namespace CarLocadora.Modelo.Models
         [StringLength(14, MinimumLength = 14, ErrorMessage = "caracteres mínimos 14")]
         public string CPF { get; set; } = string.Empty;
         [Required(ErrorMessage = "CNH é obrigatorio.")]
-        [StringLength(12, MinimumLength = 5, ErrorMessage = "caracteres mínimo 5 máximo de 30")]
+        [StringLength(12, ErrorMessage = "caracteres máximos de 12")]
         public string CNH { get; set; } = string.Empty;
 
         [Display(Name = "Nome completo")]
         [Required(ErrorMessage = "Nome completo é obrigatorio.")]
-        [StringLength(150, MinimumLength = 5, ErrorMessage = "caracteres mínimo 5 máximo de 100")]
+        [StringLength(150, MinimumLength = 5, ErrorMessage = "caracteres mínimo 5 máximo de 150")]
         public string Nome { get; set; }
 
         public DateTime DataNascimento { get; set; }
@@ -31,7 +31,7 @@ namespace CarLocadora.Modelo.Models
         public string? Telefone { get; set; }
 
         [Required(ErrorMessage = "Celular é obrigatorio.")]
-        [StringLength(15, ErrorMessage = "caracteres mínimo 14 máximo de 15")]
+        [StringLength(15, ErrorMessage = "caracteres mínimo 14 e máximo de 15")]
         public string Celular { get; set; }
         public bool Ativo { get; set; }
         public DateTime DataInclusao { get; set; }

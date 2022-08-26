@@ -132,3 +132,8 @@ C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\CarLocadora.API.csproj.CopyComplete
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\CarLocadora.API.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\ref\CarLocadora.API.dll
+C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\bin\Debug\net6.0\AspNetCoreRateLimit.dll
+C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
