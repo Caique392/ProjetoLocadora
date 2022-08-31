@@ -1,4 +1,5 @@
-﻿using CarLocadora.Modelo.Models;
+﻿using CarLocadora.Modelo;
+using CarLocadora.Modelo.Models;
 
 namespace CarLocadora.Negocio.Veiculo
 {

@@ -1,0 +1,18 @@
+﻿@model CarLocadora.Modelo.Models.FormaPagamentoModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Cadastrar forma de pagamento</h4>
+<hr />
+<div class="col-md-12">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <partial name="_Formulario" />
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,4 +1,5 @@
 ﻿using CarLocadora.Infra.Entity;
+using CarLocadora.Modelo;
 using CarLocadora.Modelo.Models;
 
 namespace CarLocadora.Negocio.Usuario
@@ -32,6 +33,6 @@ namespace CarLocadora.Negocio.Usuario
         }
 
         public List<UsuarioModel> ObterLista() => _context.usuarios.ToList();
-  
+
     }
 }

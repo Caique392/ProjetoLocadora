@@ -1,4 +1,4 @@
-﻿using CarLocadora.Modelo.Models;
+﻿using CarLocadora.Modelo;
 using CarLocadora.Negocio.FormasDePagamento;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,25 +15,25 @@ namespace CarLocadora.API.Controller
         }
 
         [HttpGet()]
-        public List<FormasDePagamentoModel> Get()
+        public List<FormaPagamentoModel> Get()
         {
             return _formasDePagamentoNegocio.ObterLista();
         }
         [HttpGet("ObterDados")]
-        public FormasDePagamentoModel Get([FromQuery] int id)
+        public FormaPagamentoModel Get([FromQuery] int id)
         {
             return _formasDePagamentoNegocio.Obter(id);
         }
         [HttpPost()]
-        public void Post([FromBody] FormasDePagamentoModel formasDePagamentoModel)
+        public void Post([FromBody] FormaPagamentoModel FormaPagamentoModel)
         {
-            _formasDePagamentoNegocio.Inserir(formasDePagamentoModel);
+            _formasDePagamentoNegocio.Inserir(FormaPagamentoModel);
         }
 
         [HttpPut()]
-        public void Put([FromBody] FormasDePagamentoModel formasDePagamentoModel)
+        public void Put([FromBody] FormaPagamentoModel FormaPagamentoModel)
         {
-            _formasDePagamentoNegocio.Alterar(formasDePagamentoModel);
+            _formasDePagamentoNegocio.Alterar(FormaPagamentoModel);
         }
     }
 }

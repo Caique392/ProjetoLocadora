@@ -36,7 +36,7 @@ namespace CarLocadora.Front.Controllers
             if (response.IsSuccessStatusCode)
             {
                 string conteudo = response.Content.ReadAsStringAsync().Result;
-                return View(JsonConvert.DeserializeObject<List<FormasDePagamentoModel>>(conteudo));
+                return View(JsonConvert.DeserializeObject<List<FormaPagamentoModel>>(conteudo));
             }
             else
             {
@@ -59,7 +59,7 @@ namespace CarLocadora.Front.Controllers
         // POST: FormasDePagamentoController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([FromForm] FormasDePagamentoModel model)
+        public ActionResult Create([FromForm] FormaPagamentoModel model)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace CarLocadora.Front.Controllers
             if (response.IsSuccessStatusCode)
             {
                 string conteudo = response.Content.ReadAsStringAsync().Result;
-                return View(JsonConvert.DeserializeObject<FormasDePagamentoModel>(conteudo));
+                return View(JsonConvert.DeserializeObject<FormaPagamentoModel>(conteudo));
             }
             else
             {
@@ -119,7 +119,7 @@ namespace CarLocadora.Front.Controllers
         // POST: FormasDePagamentoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([FromForm] FormasDePagamentoModel model)
+        public ActionResult Edit([FromForm] FormaPagamentoModel model)
         {
             try
             {

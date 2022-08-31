@@ -1,4 +1,5 @@
 ﻿using CarLocadora.Infra.Entity;
+using CarLocadora.Modelo;
 using CarLocadora.Modelo.Models;
 
 namespace CarLocadora.Negocio.FormasDePagamento
@@ -12,26 +13,27 @@ namespace CarLocadora.Negocio.FormasDePagamento
             _context = context;
         }
 
-        public void Alterar(FormasDePagamentoModel model)
+        public void Alterar(FormaPagamentoModel model)
         {
             model.DataAlteracao = DateTime.Now;
             _context.Update(model);
             _context.SaveChangesAsync();
         }
 
-        public void Inserir(FormasDePagamentoModel model)
+        public void Inserir(FormaPagamentoModel model)
         {
             model.DataInclusao = DateTime.Now;
             _context.AddAsync(model);
             _context.SaveChangesAsync();
         }
 
-        public FormasDePagamentoModel Obter(int id)
+
+        public FormaPagamentoModel Obter(int id)
         {
-            return _context.formasPagamentos.SingleOrDefault(x => x.Id.Equals(id));
+            return _context.formasPagamentos.SingleOrDefault(x => x.ID.Equals(id));
         }
 
-        public List<FormasDePagamentoModel> ObterLista() => _context.formasPagamentos.ToList();
+        public List<FormaPagamentoModel> ObterLista() => _context.formasPagamentos.ToList();
 
     }
 }

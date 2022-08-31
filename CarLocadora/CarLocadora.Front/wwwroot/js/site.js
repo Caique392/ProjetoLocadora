@@ -5,4 +5,6 @@
     $('.maskCPF').inputmask({ mask: ['999.999.999-99'] });
     $('.maskCNPJ').inputmask({ mask: ['99.999.999/9999-99'] });
 
+    $('.maskPlaca').inputmask({ mask: ['aaa-9999'] });
+    $('.maskValor').inputmask({ mask: ['"{0:N}", 43239, 11'] });
 })

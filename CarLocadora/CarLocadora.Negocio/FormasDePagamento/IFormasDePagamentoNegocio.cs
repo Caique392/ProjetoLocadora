@@ -1,12 +1,13 @@
-﻿using CarLocadora.Modelo.Models;
+﻿using CarLocadora.Modelo;
+using CarLocadora.Modelo.Models;
 
 namespace CarLocadora.Negocio.FormasDePagamento
 {
     public interface IFormasDePagamentoNegocio
     {
-        List<FormasDePagamentoModel> ObterLista();
-        void Inserir(FormasDePagamentoModel model);
-        void Alterar(FormasDePagamentoModel model);
-        FormasDePagamentoModel Obter(int id);
+        List<FormaPagamentoModel> ObterLista();
+        void Inserir(FormaPagamentoModel model);
+        void Alterar(FormaPagamentoModel model);
+        FormaPagamentoModel Obter(int id);
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using CarLocadora.Infra.Entity;
+using CarLocadora.Modelo;
 using CarLocadora.Modelo.Models;
 
 namespace CarLocadora.Negocio.Veiculo
@@ -20,12 +21,14 @@ namespace CarLocadora.Negocio.Veiculo
             _context.SaveChangesAsync();
         }
 
+
         public void Inserir(VeiculoModel model)
         {
             model.DataInclusao = DateTime.Now;
             _context.AddAsync(model);
             _context.SaveChangesAsync();
         }
+
 
         public VeiculoModel Obter(string placa) => _context.veiculos.SingleOrDefault(x => x.Placa.Equals(placa));
     
