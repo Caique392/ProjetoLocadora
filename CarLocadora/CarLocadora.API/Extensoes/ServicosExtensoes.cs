@@ -3,6 +3,7 @@ using CarLocadora.Infra.Entity;
 using CarLocadora.Negocio.Categoria;
 using CarLocadora.Negocio.Cliente;
 using CarLocadora.Negocio.FormasDePagamento;
+using CarLocadora.Negocio.ManutencaoVeiculo;
 using CarLocadora.Negocio.Usuario;
 using CarLocadora.Negocio.Veiculo;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -28,7 +29,7 @@ namespace CarLocadora.API.Extensoes
             services.AddScoped<IFormasDePagamentoNegocio, FormasDePagamentoNegocio>();
             services.AddScoped<IUsuarioNegocio, UsuarioNegocio>();
             services.AddScoped<IVeiculoNegocio, VeiculoNegocio>();
-            //services.AddScoped<IManutencaoVeiculoNegocio, ManutencaoVeiculoNegocio>();
+            services.AddScoped<IManutencaoVeiculoNegocio, ManutencaoVeiculoNegocio>();
         }
 
         public static void ConfigurarJWT(this IServiceCollection services)

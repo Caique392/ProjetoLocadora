@@ -1,7 +1,8 @@
 ﻿using CarLocadora.Front.Models;
+using CarLocadora.Front.Servico;
 using CarLocadora.Modelo.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
@@ -10,13 +11,14 @@ namespace CarLocadora.Front.Controllers
 {
     public class VeiculoController : Controller
     {
-        private string? mensagem = string.Empty;
+        private string mensagem = string.Empty;
 
         private readonly IOptions<DadosBase> _dadosBase;
-
-        public VeiculoController(IOptions<DadosBase> dadosBase)
+        private readonly IApiToken _apiToken;
+        public VeiculoController(IOptions<DadosBase> dadosBase, IApiToken apiToken)
         {
             _dadosBase = dadosBase;
+            _apiToken = apiToken;
         }
 
         // GET: VeiculoController
@@ -30,6 +32,7 @@ namespace CarLocadora.Front.Controllers
             HttpClient client = new();
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken.Obter());
 
             HttpResponseMessage response = client.GetAsync($"{_dadosBase.Value.API_URL_BASE}Veiculo").Result;
 
@@ -40,12 +43,12 @@ namespace CarLocadora.Front.Controllers
             }
             else
             {
-                throw new Exception("Deu Zica");
+                throw new Exception("Algo deu errado");
             }
         }
 
         // GET: VeiculoController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
             return View();
         }
@@ -53,6 +56,8 @@ namespace CarLocadora.Front.Controllers
         // GET: VeiculoController/Create
         public ActionResult Create()
         {
+            ViewBag.CategoriasDeVeiculos = CarregarCategoriasDeVeiculos();
+
             return View();
         }
 
@@ -69,6 +74,7 @@ namespace CarLocadora.Front.Controllers
                     HttpClient client = new();
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken.Obter());
 
                     HttpResponseMessage response = client.PostAsJsonAsync($"{_dadosBase.Value.API_URL_BASE}Veiculo", model).Result;
 
@@ -78,7 +84,7 @@ namespace CarLocadora.Front.Controllers
                     }
                     else
                     {
-                        throw new Exception("Deu Zica");
+                        throw new Exception("Algo deu errado");
                     }
 
                 }
@@ -90,7 +96,7 @@ namespace CarLocadora.Front.Controllers
             }
             catch (Exception ex)
             {
-                TempData["erro"] = "Algum erro aconteceu " + ex.Message;
+                TempData["erro"] = "Algo deu errado " + ex.Message;
 
                 return View();
             }
@@ -102,8 +108,9 @@ namespace CarLocadora.Front.Controllers
             HttpClient client = new();
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken.Obter());
 
-            HttpResponseMessage response = client.GetAsync($"{_dadosBase.Value.API_URL_BASE}Veiculo/ObterDados?Id={placa}").Result;
+            HttpResponseMessage response = client.GetAsync($"{_dadosBase.Value.API_URL_BASE}Veiculo/ObterDados?placa={placa}").Result;
 
             if (response.IsSuccessStatusCode)
             {
@@ -112,7 +119,7 @@ namespace CarLocadora.Front.Controllers
             }
             else
             {
-                throw new Exception("Deu Zica");
+                throw new Exception("Algo deu errado");
             }
         }
 
@@ -128,13 +135,14 @@ namespace CarLocadora.Front.Controllers
                     HttpClient client = new();
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken.Obter());
 
                     HttpResponseMessage response = client.PutAsJsonAsync($"{_dadosBase.Value.API_URL_BASE}Veiculo", model).Result;
 
                     if (response.IsSuccessStatusCode)
                         return RedirectToAction(nameof(Index), new { mensagem = "Registro editado!", sucesso = true });
                     else
-                        throw new Exception("Deu Zica");
+                        throw new Exception("Algo deu errado");
 
                 }
                 else
@@ -145,31 +153,85 @@ namespace CarLocadora.Front.Controllers
             }
             catch (Exception ex)
             {
-                TempData["erro"] = "Algum erro aconteceu " + ex.Message;
+                TempData["erro"] = "Algo deu errado " + ex.Message;
 
                 return View();
             }
         }
 
-        // GET: VeiculoController/Delete/5
-        public ActionResult Delete(int id)
+        private List<SelectListItem> CarregarCategoriasDeVeiculos()
         {
-            return View();
-        }
+            List<SelectListItem> lista = new List<SelectListItem>();
 
-        // POST: VeiculoController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken.Obter());
+
+            HttpResponseMessage response = client.GetAsync($"{_dadosBase.Value.API_URL_BASE}Categoria").Result;
+
+            if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction(nameof(Index));
+                string conteudo = response.Content.ReadAsStringAsync().Result;
+                List<CategoriaModel> categorias = JsonConvert.DeserializeObject<List<CategoriaModel>>(conteudo);
+
+                foreach (var linha in categorias)
+                {
+                    lista.Add(new SelectListItem()
+                    {
+                        Value = linha.Id.ToString(),
+                        Text = linha.Descricao,
+                        Selected = false,
+                    });
+                }
+
+                return lista;
             }
-            catch
+            else
             {
-                return View();
+                throw new Exception(response.ReasonPhrase);
             }
         }
     }
 }
+        //// GET: VeiculoController/Delete/5
+        //public ActionResult Delete(string placa)
+        //{
+        //    try
+        //    {
+        //        HttpClient client = new();
+        //        client.DefaultRequestHeaders.Accept.Clear();
+        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiToken.Obter());
+
+
+        //        HttpResponseMessage response = client.DeleteAsync($"{_dadosBase.Value.API_URL_BASE}Veiculo?Placa={placa}").Result;
+
+        //        if (response.IsSuccessStatusCode)
+        //            return RedirectToAction(nameof(Index), new { mensagem = "Registro deletado!", sucesso = true });
+        //        else
+        //            throw new Exception("Algo deu errado");
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TempData["erro"] = " Não foi possível realizar a exlusão" + ex.Message;
+
+        //        return View();
+        //    }
+        //}
+
+        //// POST: VeiculoController/Delete/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(string veiculo, IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}

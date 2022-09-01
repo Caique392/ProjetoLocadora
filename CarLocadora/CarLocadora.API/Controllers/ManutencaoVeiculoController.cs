@@ -1,4 +1,4 @@
-﻿using CarLocadora.Modelo;
+﻿using CarLocadora.Modelo.Models;
 using CarLocadora.Negocio.ManutencaoVeiculo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,5 +1,5 @@
 ﻿using CarLocadora.Infra.Entity;
-using CarLocadora.Modelo;
+using CarLocadora.Modelo.Models;
 using CarLocadora.Modelo.Models;
 
 namespace CarLocadora.Negocio.FormasDePagamento
@@ -30,7 +30,7 @@ namespace CarLocadora.Negocio.FormasDePagamento
 
         public FormaPagamentoModel Obter(int id)
         {
-            return _context.formasPagamentos.SingleOrDefault(x => x.ID.Equals(id));
+            return _context.formasPagamentos.SingleOrDefault(x => x.Id.Equals(id));
         }
 
         public List<FormaPagamentoModel> ObterLista() => _context.formasPagamentos.ToList();

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CarLocadora.Modelo
+namespace CarLocadora.Modelo.Models
 {
     public class LocacaoModel
     {
@@ -15,13 +15,13 @@ namespace CarLocadora.Modelo
         [StringLength(14, MinimumLength = 14, ErrorMessage = "Preenchimento obrigatório com 14 caracteres")]
         public string ClienteCPF { get; set; } = "";
 
+        public ClienteModel? Cliente { get; set; }
 
         [Display(Name = "Forma Pagamento")]
         [Required(ErrorMessage = "Forma Pagamento é obrigatório.")]
-        public string FormaPagamentosId { get; set; } = "";
+        public string FormaPagamentoId { get; set; } = "";
 
-
-        public int? CategoriaId { get; set; }
+        public FormaPagamentoModel? FormaPagamento { get; set; }
 
 
         [Display(Name = "Data da Reserva")]

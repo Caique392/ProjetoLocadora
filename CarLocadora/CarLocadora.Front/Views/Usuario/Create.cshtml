@@ -1,19 +1,23 @@
 ﻿@model CarLocadora.Modelo.Models.UsuarioModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Usuario";
 }
 
-<h4>Cadastrar Usuario</h4>
-<hr />
-<form asp-action="Create">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <partial name="_Formulario" />
-</form>
+<h3>Cadastrar Usuario</h3>
+<br />
 
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-    }
+            <partial name="_Formulario"/>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+   
+
+</div>

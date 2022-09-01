@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CarLocadora.Modelo
+namespace CarLocadora.Modelo.Models
 {
     public class EnderecoModel
     {

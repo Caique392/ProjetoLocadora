@@ -1,4 +1,4 @@
-﻿using CarLocadora.Modelo;
+﻿using CarLocadora.Modelo.Models;
 using CarLocadora.Negocio.FormasDePagamento;
 using Microsoft.AspNetCore.Mvc;
 

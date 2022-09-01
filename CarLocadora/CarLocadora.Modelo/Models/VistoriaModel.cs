@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CarLocadora.Modelo
+namespace CarLocadora.Modelo.Models
 {
     public class VistoriaModel
     {

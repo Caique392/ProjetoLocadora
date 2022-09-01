@@ -1,8 +1,13 @@
 using CarLocadora.Front.Models;
+using CarLocadora.Front.Servico;
+using CarLocadora.Servico;
+
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.Configure<DadosBase>(builder.Configuration.GetSection("DadosBase"));
 
-builder.Services.Configure<DadosBase>(builder.Configuration.GetSection("DadosBases"));
+
+builder.Services.AddScoped<IApiToken, ApiToken>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

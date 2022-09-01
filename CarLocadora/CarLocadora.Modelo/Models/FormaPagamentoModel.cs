@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CarLocadora.Modelo
+namespace CarLocadora.Modelo.Models
 {
     public class FormaPagamentoModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required(ErrorMessage = "ID é obrigatório.")]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
 
         [Display(Name = "Descrição")]

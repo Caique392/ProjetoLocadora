@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CarLocadora.Modelo
+namespace CarLocadora.Modelo.Models
 {
     public class VeiculoModel
     {
@@ -50,7 +50,8 @@ namespace CarLocadora.Modelo
         [Display(Name = "Data de Alteração")]
         public DateTime? DataAlteracao { get; set; }
 
-
+        public int? CategoriaId { get; set; }
+        public CategoriaModel? Categoria { get; set; }
 
     }
 }
