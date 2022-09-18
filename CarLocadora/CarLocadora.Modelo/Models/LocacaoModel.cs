@@ -17,22 +17,22 @@ namespace CarLocadora.Modelo.Models
 
         public ClienteModel? Cliente { get; set; }
 
-        [Display(Name = "Forma Pagamento")]
+        [Display(Name = "Forma de Pagamento")]
         [Required(ErrorMessage = "Forma Pagamento é obrigatório.")]
         public string FormaPagamentoId { get; set; } = "";
 
         public FormaPagamentoModel? FormaPagamento { get; set; }
 
 
-        [Display(Name = "Data da Reserva")]
+        [Display(Name = "Data de Reserva")]
         [Required(ErrorMessage = "Data e hora da reserva é obrigatório.")]
         public DateTime DataHoraReserva { get; set; }
 
-        [Display(Name = "Data da Retirada")]
+        [Display(Name = "Data de Retirada")]
         [Required(ErrorMessage = "Data da retirada é obrigatório.")]
         public DateTime DataHoraRetiradaPrevista { get; set; }
 
-        [Display(Name = "Data da Devolução")]
+        [Display(Name = "Data de Devolução")]
         [Required(ErrorMessage = "Data da devolução é obrigatório.")]
         public DateTime DataHoraDevolucaoPrevista { get; set; }
 

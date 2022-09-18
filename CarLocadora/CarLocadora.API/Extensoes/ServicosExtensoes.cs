@@ -3,6 +3,7 @@ using CarLocadora.Infra.Entity;
 using CarLocadora.Negocio.Categoria;
 using CarLocadora.Negocio.Cliente;
 using CarLocadora.Negocio.FormasDePagamento;
+using CarLocadora.Negocio.Locacao;
 using CarLocadora.Negocio.ManutencaoVeiculo;
 using CarLocadora.Negocio.Usuario;
 using CarLocadora.Negocio.Veiculo;
@@ -30,6 +31,8 @@ namespace CarLocadora.API.Extensoes
             services.AddScoped<IUsuarioNegocio, UsuarioNegocio>();
             services.AddScoped<IVeiculoNegocio, VeiculoNegocio>();
             services.AddScoped<IManutencaoVeiculoNegocio, ManutencaoVeiculoNegocio>();
+            services.AddScoped<ILocacaoNegocio, LocacaoNegocio>();
+
         }
 
         public static void ConfigurarJWT(this IServiceCollection services)

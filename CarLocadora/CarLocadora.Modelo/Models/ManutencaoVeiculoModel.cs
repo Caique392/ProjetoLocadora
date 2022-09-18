@@ -15,7 +15,7 @@ namespace CarLocadora.Modelo.Models
         [StringLength(1000, MinimumLength = 5, ErrorMessage = "Este campo deve ter no mínimo 1 e no máximo 1000 caracteres.")]
         public string Descricao { get; set; }
 
-        [Display(Name = "Data Serviço")]
+        [Display(Name = "Data do Serviço")]
         public DateTime DataServico { get; set; }
 
         [Display(Name = "Garantia (Meses)")]

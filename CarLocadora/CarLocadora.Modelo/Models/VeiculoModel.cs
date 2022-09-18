@@ -13,7 +13,7 @@ namespace CarLocadora.Modelo.Models
 
 
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Preenchimento mínimo de 5 caracteres e máximo de 100")]
-        public string Chassi { get; set; } = string.Empty;
+        public string? Chassi { get; set; } = string.Empty;
 
 
         [Required(ErrorMessage = "Marca é obrigatório.")]

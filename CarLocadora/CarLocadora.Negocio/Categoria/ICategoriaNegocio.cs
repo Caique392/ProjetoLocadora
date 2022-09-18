@@ -4,10 +4,9 @@ namespace CarLocadora.Negocio.Categoria
 {
     public interface ICategoriaNegocio
     {
-        List<CategoriaModel> ObterLista();
-        void Inserir(CategoriaModel model);
-        void Alterar(CategoriaModel model);
-        void Excluir(int id);
-        CategoriaModel Obter(int id);
+        Task<List<CategoriaModel>> ObterLista();
+        Task Incluir (CategoriaModel model);
+        Task Alterar(CategoriaModel model);
+        Task<CategoriaModel> Obter(int id);
     }
 }

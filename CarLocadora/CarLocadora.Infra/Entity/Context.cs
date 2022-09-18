@@ -1,5 +1,4 @@
 ﻿using CarLocadora.Modelo.Models;
-using CarLocadora.Modelo.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarLocadora.Infra.Entity
@@ -19,6 +18,7 @@ namespace CarLocadora.Infra.Entity
         public DbSet<FormaPagamentoModel> formasPagamentos { get; set; }
         public DbSet<ManutencaoVeiculoModel> ManutencaoVeiculo { get; set; }
         public DbSet<VistoriaModel> Vistoria { get; set; }
+        public DbSet<LocacaoModel> Locacao { get; set; }
 
 
 

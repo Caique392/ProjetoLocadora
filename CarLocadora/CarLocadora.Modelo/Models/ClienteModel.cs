@@ -24,7 +24,7 @@ namespace CarLocadora.Modelo.Models
         [Required(ErrorMessage = "Nome completo é obrigatorio.")]
         [StringLength(150, MinimumLength = 5, ErrorMessage = "caracteres mínimo 5 máximo de 150")]
         public string Nome { get; set; }
-
+        [Display(Name = "Data de Nascimento")]
         public DateTime DataNascimento { get; set; }
 
         [StringLength(15, ErrorMessage = "caracteres máximos de 15")]
@@ -34,6 +34,7 @@ namespace CarLocadora.Modelo.Models
         [StringLength(15, ErrorMessage = "caracteres mínimo 14 e máximo de 15")]
         public string Celular { get; set; }
         public bool Ativo { get; set; }
+        [Display(Name = "Data de Inclusão")]
         public DateTime DataInclusao { get; set; }
         [Display(Name = "Data de Alteração")]
 

@@ -70,7 +70,6 @@ C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\CarLocadora.API.AssemblyInfoInputs.cache
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\CarLocadora.API.AssemblyInfo.cs
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\CarLocadora.API.csproj.CoreCompileInputs.cache
-C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\CarLocadora.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\CarLocadora.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\CarLocadora.API.dll
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\refint\CarLocadora.API.dll
@@ -137,3 +136,4 @@ C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.API\obj\Debug\net6.0\CarLocadora.API.MvcApplicationPartsAssemblyInfo.cs

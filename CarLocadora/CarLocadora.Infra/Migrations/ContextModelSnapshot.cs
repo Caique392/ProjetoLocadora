@@ -268,7 +268,6 @@ namespace CarLocadora.Infra.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Chassi")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 

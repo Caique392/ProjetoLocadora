@@ -1,10 +1,15 @@
+using CarLocadora.Front.Extensoes;
 using CarLocadora.Front.Models;
 using CarLocadora.Front.Servico;
 using CarLocadora.Servico;
 
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.Configure<DadosBase>(builder.Configuration.GetSection("DadosBase"));
+builder.Services.ConfigurarServicos();
+builder.Services.ConfigurarAPI(builder.Configuration);
+
+
+//builder.Services.Configure<DadosBase>(builder.Configuration.GetSection("DadosBase"));
 
 
 builder.Services.AddScoped<IApiToken, ApiToken>();

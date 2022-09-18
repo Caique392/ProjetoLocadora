@@ -1,6 +1,5 @@
 ﻿using CarLocadora.Infra.Entity;
 using CarLocadora.Modelo.Models;
-using CarLocadora.Modelo.Models;
 
 namespace CarLocadora.Negocio.Vistoria
 {

@@ -14,10 +14,15 @@ namespace CarLocadora.Modelo.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; } = 0;
         [StringLength (100)]
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
+        [Display(Name = "Nome Diária")]
         public decimal ValorDiaria { get; set; }
         public bool Ativo { get; set; }
+
+        [Display(Name = "Data de Inclusão")]
         public DateTime DataInclusao { get; set; }
+        [Display(Name = "Data de Alteração")]
         public DateTime? DataAlteracao { get; set; }
     }
 }

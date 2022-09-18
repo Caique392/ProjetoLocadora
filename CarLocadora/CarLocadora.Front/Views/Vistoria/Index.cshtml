@@ -1,0 +1,121 @@
+﻿@model IEnumerable<CarLocadora.Modelo.Models.VistoriaModel>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<p>
+	<div align="center">
+		<h2>Vistorias</h2>
+	</div>
+	<br />
+	<a asp-action="Create"> <input class="btn btn-warning" value="Novo Cadastro" /></a>
+</p>
+	<br />
+<table class="table">
+	<thead>
+		<tr>
+
+			<th>
+				@Html.DisplayNameFor(model => model.LocacaoID)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.KmSaida)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.CombustivelSaida)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ObservacaoSaida)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DataHoraRetiradaPatio)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.KmEntrada)
+			</th>
+				<th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+
+				<td>
+					@Html.DisplayFor(modelItem => item.LocacaoID)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.KmSaida)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.CombustivelSaida)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.ObservacaoSaida)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DataHoraRetiradaPatio)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.KmEntrada)
+				</td>
+
+
+				<td>
+					@Html.ActionLink("Editar", "Edit", new {  Id=item.Id}, new {@class="btn btn-primary"})
+					@*<a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-Id="@item.Id">Excluir</a>*@
+				</td>
+
+			</tr>
+		}
+	</tbody>
+</table>
+
+@*<div class="modal fade" id="examplemodal" tabindex="-1" aria-labelledby="examplemodallabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="examplemodallabel">excluir cadastro</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+			</div>
+			<div class="modal-body">
+				<div id='divmodaltexto' class="mb-3">
+				</div>
+			</div>*@
+			@*<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fechar</button>
+				@html.actionlink("excluir", "delete", null, htmlattributes: new { @class = "btn btn-danger" })
+			</div>*@
+@*		</div>
+	</div>
+</div>
+*@
+@*@section scripts {
+	<script type="text/javascript">
+
+		var examplemodal = document.getelementbyid('examplemodal')
+		examplemodal.addeventlistener('show.bs.modal', function(event) {
+
+			var button = event.relatedtarget
+
+			var id = button.getattribute('data-bs-id')
+			//var id = button.getattribute('data-bs-id')
+
+
+			var modalbodydiv = examplemodal.queryselector('.modal-body div')
+			modalbodydiv.innerhtml = "você confirma a exclusão da vistoria: <b>" + id + "?</b>"
+				+ "<br />não será possível resgatar este cadastro após a confirmação!";
+
+			var modalfooterlink = examplemodal.queryselector('.modal-footer a ')
+			modalfooterlink.href = "/vistoria/delete?id=" + id;
+
+		})
+
+
+	</script>
+*@
+
+
+
+
