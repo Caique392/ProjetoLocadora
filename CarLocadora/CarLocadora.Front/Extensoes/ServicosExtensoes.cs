@@ -1,7 +1,6 @@
-﻿using CarLocadora.Front.Models;
-using CarLocadora.Front.Servico;
+﻿using CarLocadora.Comum;
+using CarLocadora.Comum.Modelo;
 using CarLocadora.Modelo.Models;
-using CarLocadora.Servico;
 
 namespace CarLocadora.Front.Extensoes
 {

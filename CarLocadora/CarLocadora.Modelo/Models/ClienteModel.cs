@@ -39,5 +39,12 @@ namespace CarLocadora.Modelo.Models
         [Display(Name = "Data de Alteração")]
 
         public DateTime? DataAlteracao { get; set; }
+
+        [Display(Name = "Email")]
+        [StringLength(100)]
+        public string? Email { get; set; }
+        [Display(Name = "Email Enviado")]
+        public bool EmailEnviado { get; set; }
+
     }
 }

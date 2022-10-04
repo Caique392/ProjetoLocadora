@@ -1,4 +1,4 @@
-﻿namespace CarLocadora.Front.Servico
+﻿namespace CarLocadora.Comum
 {
     public interface IApiToken
     {

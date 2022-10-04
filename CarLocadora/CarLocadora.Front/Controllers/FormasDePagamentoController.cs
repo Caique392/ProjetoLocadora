@@ -1,4 +1,6 @@
-﻿using CarLocadora.Front.Models;
+﻿using CarLocadora.Comum;
+using CarLocadora.Comum.Modelo;
+using CarLocadora.Front.Models;
 using CarLocadora.Modelo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +15,15 @@ namespace CarLocadora.Front.Controllers
         private string? mensagem = string.Empty;
 
         private readonly IOptions<DadosBase> _dadosBase;
+        private readonly HttpClient _httpClient;
 
-        public FormasDePagamentoController(IOptions<DadosBase> dadosBase)
+
+        public FormasDePagamentoController(IOptions<DadosBase> dadosBase, IHttpClientFactory httpClient)
         {
             _dadosBase = dadosBase;
+            _httpClient = httpClient.CreateClient();
+            _httpClient.DefaultRequestHeaders.Accept.Clear();
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         // GET: FormasDePagamentoController
@@ -27,11 +34,7 @@ namespace CarLocadora.Front.Controllers
             else
                 TempData["erro"] = mensagem;
 
-            HttpClient client = new();
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            HttpResponseMessage response = await client.GetAsync($"{_dadosBase.Value.API_URL_BASE}FormasDePagamento");
+            HttpResponseMessage response = await _httpClient.GetAsync($"{_dadosBase.Value.API_URL_BASE}FormasDePagamento");
 
             if (response.IsSuccessStatusCode)
             {
@@ -66,11 +69,7 @@ namespace CarLocadora.Front.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    HttpClient client = new();
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    HttpResponseMessage response = await client.PostAsJsonAsync($"{_dadosBase.Value.API_URL_BASE}FormasDePagamento", model);
+                    HttpResponseMessage response = await _httpClient.PostAsJsonAsync($"{_dadosBase.Value.API_URL_BASE}FormasDePagamento", model);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -99,11 +98,9 @@ namespace CarLocadora.Front.Controllers
         // GET: FormasDePagamentoController/Edit/5
         public ActionResult Edit(int id)
         {
-            HttpClient client = new();
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = client.GetAsync($"{_dadosBase.Value.API_URL_BASE}FormasDePagamento/ObterDados?Id={id}").Result;
+
+            HttpResponseMessage response = _httpClient.GetAsync($"{_dadosBase.Value.API_URL_BASE}FormasDePagamento/ObterDados?Id={id}").Result;
 
             if (response.IsSuccessStatusCode)
             {
@@ -125,11 +122,7 @@ namespace CarLocadora.Front.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    HttpClient client = new();
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    HttpResponseMessage response = await client.PutAsJsonAsync($"{_dadosBase.Value.API_URL_BASE}FormasDePagamento", model);
+                    HttpResponseMessage response = await _httpClient.PutAsJsonAsync($"{_dadosBase.Value.API_URL_BASE}FormasDePagamento", model);
 
                     if (response.IsSuccessStatusCode)
                         return RedirectToAction(nameof(Index), new { mensagem = "Registro editado!", sucesso = true });

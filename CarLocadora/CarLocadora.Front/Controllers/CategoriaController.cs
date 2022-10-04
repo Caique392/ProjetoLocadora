@@ -1,5 +1,5 @@
-﻿using CarLocadora.Front.Models;
-using CarLocadora.Front.Servico;
+﻿using CarLocadora.Comum;
+using CarLocadora.Comum.Modelo;
 using CarLocadora.Modelo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -10,16 +10,16 @@ namespace CarLocadora.Front.Controllers
 {
     public class CategoriaController : Controller
     {
-      
-            private string mensagem = string.Empty;
 
-            private readonly IOptions<DadosBase> _dadosBase;
-            private readonly HttpClient _httpClient;
-            private readonly IApiToken _apiToken;
-            public CategoriaController(IOptions<DadosBase> dadosBase, IApiToken apiToken, IHttpClientFactory httpClient)
-            {
-                _dadosBase = dadosBase;
-                _apiToken = apiToken;
+        private string mensagem = string.Empty;
+
+        private readonly IOptions<DadosBase> _dadosBase;
+        private readonly HttpClient _httpClient;
+        private readonly IApiToken _apiToken;
+        public CategoriaController(IOptions<DadosBase> dadosBase, IApiToken apiToken, IHttpClientFactory httpClient)
+        {
+            _dadosBase = dadosBase;
+            _apiToken = apiToken;
             _httpClient = httpClient.CreateClient();
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -27,7 +27,7 @@ namespace CarLocadora.Front.Controllers
         }
         // GET: CategoriaController
         public async Task<IActionResult> Index()
-            {
+        {
 
             //HttpClient client = new();
             //_httpClient.DefaultRequestHeaders.Accept.Clear();
@@ -37,19 +37,19 @@ namespace CarLocadora.Front.Controllers
 
             HttpResponseMessage response = await _httpClient.GetAsync($"{_dadosBase.Value.API_URL_BASE}Categoria");
 
-                if (response.IsSuccessStatusCode)
-                {
-                    string conteudo = await response.Content.ReadAsStringAsync();
-                    return View(JsonConvert.DeserializeObject<List<CategoriaModel>>(conteudo));
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
+            if (response.IsSuccessStatusCode)
+            {
+                string conteudo = await response.Content.ReadAsStringAsync();
+                return View(JsonConvert.DeserializeObject<List<CategoriaModel>>(conteudo));
             }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
+            }
+        }
 
-            // GET: CategoriaController/Details/5
-            public ActionResult Details(int id)
+        // GET: CategoriaController/Details/5
+        public ActionResult Details(int id)
         {
             return View();
         }
@@ -125,7 +125,7 @@ namespace CarLocadora.Front.Controllers
         // POST: CategoriaController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> Edit([FromForm] CategoriaModel model)
+        public async Task<IActionResult> Edit([FromForm] CategoriaModel model)
         {
             try
             {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LpdeXO0477cHkPCiiWZkbMwvpghy87vi7NcbICN9+Ey4rp3Tu+/vllXpodPZDY/yAY7jSYCU+yTKIHFZSUcbKQ==",
+  "dgSpecHash": "c0Cgbrp0kfSgFu47Z/74cdVAmRQpegdlPafXw3K7wF3GwwVNb2fndJJ0bPA+HBheCQP+3v/g5ROjMaiTy+op7A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Usuario\\Desktop\\Repositorio\\ProjetoLocadora\\CarLocadora\\CarLocadora.Front\\CarLocadora.Front.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,8 @@
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.dotnet.scaffolding.shared\\6.0.8\\microsoft.dotnet.scaffolding.shared.6.0.8.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.22.0\\microsoft.identitymodel.abstractions.6.22.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.22.0\\microsoft.identitymodel.jsonwebtokens.6.22.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.identitymodel.logging\\6.22.0\\microsoft.identitymodel.logging.6.22.0.nupkg.sha512",

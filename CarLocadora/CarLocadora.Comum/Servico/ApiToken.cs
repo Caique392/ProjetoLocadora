@@ -1,11 +1,11 @@
-﻿using CarLocadora.Front.Models;
-using CarLocadora.Front.Servico;
-using CarLocadora.Models;
+﻿using CarLocadora.Comum.Modelo;
+using CarLocadora.Modelo.Models;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 
-namespace CarLocadora.Servico
+namespace CarLocadora.Comum
 {
     public class ApiToken : IApiToken
     {

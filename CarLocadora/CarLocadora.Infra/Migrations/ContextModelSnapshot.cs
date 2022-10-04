@@ -89,6 +89,13 @@ namespace CarLocadora.Infra.Migrations
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Email")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("EmailEnviado")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Estado")
                         .IsRequired()
                         .HasMaxLength(2)
@@ -143,6 +150,55 @@ namespace CarLocadora.Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("formasPagamentos");
+                });
+
+            modelBuilder.Entity("CarLocadora.Modelo.Models.LocacaoModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ClienteCPF")
+                        .IsRequired()
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
+
+                    b.Property<DateTime?>("DataAlteracao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataHoraDevolucaoPrevista")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataHoraReserva")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataHoraRetiradaPrevista")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataInclusao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FormaPagamentoId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("FormaPagamentoId1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VeiculoPlaca")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteCPF");
+
+                    b.HasIndex("FormaPagamentoId1");
+
+                    b.ToTable("Locacao");
                 });
 
             modelBuilder.Entity("CarLocadora.Modelo.Models.ManutencaoVeiculoModel", b =>
@@ -356,6 +412,23 @@ namespace CarLocadora.Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Vistoria");
+                });
+
+            modelBuilder.Entity("CarLocadora.Modelo.Models.LocacaoModel", b =>
+                {
+                    b.HasOne("CarLocadora.Modelo.Models.ClienteModel", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteCPF")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarLocadora.Modelo.Models.FormaPagamentoModel", "FormaPagamento")
+                        .WithMany()
+                        .HasForeignKey("FormaPagamentoId1");
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("FormaPagamento");
                 });
 
             modelBuilder.Entity("CarLocadora.Modelo.Models.ManutencaoVeiculoModel", b =>

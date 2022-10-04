@@ -503,3 +503,5 @@ C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.Fro
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.Front\obj\Debug\net6.0\CarLocadora.Front.csproj.CopyComplete
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.Front\obj\Debug\net6.0\CarLocadora.Front.genruntimeconfig.cache
 C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.Front\obj\Debug\net6.0\ref\CarLocadora.Front.dll
+C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.Front\bin\Debug\net6.0\CarLocadora.Comum.dll
+C:\Users\Usuario\Desktop\Repositorio\ProjetoLocadora\CarLocadora\CarLocadora.Front\bin\Debug\net6.0\CarLocadora.Comum.pdb
