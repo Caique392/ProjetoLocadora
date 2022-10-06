@@ -41,7 +41,7 @@ namespace CarLocadora.EnviarEmail
                     try
                     {
                         await EnviarEmail(cliente.Email, cliente.Nome);
-                        await AtualizarCliente(cliente);
+                        await AtualizarCliente(cliente.CPF);
                     }
                     catch (Exception)
                     {
@@ -54,21 +54,8 @@ namespace CarLocadora.EnviarEmail
                 await Task.Delay(35000, stoppingToken);
             }
         }
-        private async Task<List<ClienteModel>> BuscarEmailCliente()
-        {
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _apiToken.Obter());
-            HttpResponseMessage retorno = await _httpClient.GetAsync("https://localhost:44339/api/Cliente/ObterListaEnviarEmail");
-            if (retorno.IsSuccessStatusCode)
-            {
-                return JsonConvert.DeserializeObject<List<ClienteModel>>(await retorno.Content.ReadAsStringAsync());
-            }
-            else
-            {
-                throw new Exception(retorno.ReasonPhrase);
-            }
 
-        }
-
+        #region Envio de Emails
         private async Task EnviarEmail(string email, string nome)
         {
             MailMessage mensagem = new MailMessage();
@@ -97,22 +84,42 @@ namespace CarLocadora.EnviarEmail
             sb.Append($"<p>Grande abraço</p>");
             return sb.ToString();
         }
+        #endregion
 
-        private async Task AtualizarCliente(ClienteModel cliente)
+        #region METODOS API
+        private async Task<List<ClienteModel>> BuscarEmailCliente()
         {
-            cliente.EmailEnviado = true;
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _apiToken.Obter());
-            HttpResponseMessage response = await _httpClient.PutAsJsonAsync($"{_dadosBase.Value.API_URL_BASE}Cliente", cliente);
-
-            if (response.IsSuccessStatusCode)
+            HttpResponseMessage retorno = await _httpClient.GetAsync("https://localhost:44339/api/Cliente/ObterListaEnviarEmail");
+            if (retorno.IsSuccessStatusCode)
             {
-                _logger.LogInformation($"Email Enviado com sucesso!");
+                return JsonConvert.DeserializeObject<List<ClienteModel>>(await retorno.Content.ReadAsStringAsync());
             }
             else
+            {
+                throw new Exception(retorno.ReasonPhrase);
+            }
+
+        }
+
+
+
+        private async Task AtualizarCliente(string cpf)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _apiToken.Obter());
+            HttpResponseMessage response = await _httpClient.PutAsJsonAsync($"{_dadosBase.Value.API_URL_BASE}Cliente/AlterarEnvioDeEmail", cpf);
+
+            if (!response.IsSuccessStatusCode)
             {
                 throw new Exception(response.ReasonPhrase);
             }
         }
+        #endregion
+
+
+
+
+
 
     }
 }
